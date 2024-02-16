@@ -1,1 +1,1 @@
-# hedron
+# Monorepo for the Hedron App
