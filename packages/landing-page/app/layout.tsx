@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+
 import "./globals.css";
+
 import Navbar from "@/components/shared/navbar";
-import { cn } from "@/lib/utils";
+import JoinWaitlistModal from "@/components/shared/join-waitlist-modal";
+import { Toaster } from "@/components/ui/sonner";
+import { WaitlistProvider } from "@/contexts/waitlist";
 import Footer from "@/components/shared/footer";
+import { cn } from "@/lib/utils";
 
 const poppins = Poppins({
 	subsets: ["devanagari"],
@@ -21,12 +26,16 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
-			<body className={cn(poppins.className, "relative")}>
-				<Navbar />
-				{children}
-				<Footer />
-			</body>
-		</html>
+		<WaitlistProvider>
+			<html lang='en'>
+				<body className={cn(poppins.className, "relative")}>
+					<Navbar />
+					{children}
+					<Footer />
+					<JoinWaitlistModal />
+					<Toaster />
+				</body>
+			</html>
+		</WaitlistProvider>
 	);
 }

@@ -3,12 +3,8 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
 import Image from "next/image";
-import JoinWaitlistModal from "./join-waitlist-modal";
-import { useState } from "react";
 
 export default function Navbar() {
-	const [open, setOpen] = useState(false);
-
 	return (
 		<nav className='w-full py-5 top-0 left-0 lg:sticky z-50 bg-background'>
 			<div className='container flex justify-between items-center'>
@@ -31,11 +27,9 @@ export default function Navbar() {
 					</Link>
 				</div>
 
-				<Button onClick={() => setOpen(true)} className='font-semibold px-6'>
-					Join the Waitlist
-				</Button>
-
-				<JoinWaitlistModal open={open} setOpen={setOpen} />
+				<Link href='/#join-waitlist'>
+					<Button className='font-semibold px-6'>Join the Waitlist</Button>
+				</Link>
 			</div>
 		</nav>
 	);
