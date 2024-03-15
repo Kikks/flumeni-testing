@@ -20,8 +20,13 @@ export default function Problems() {
 			</div>
 
 			<div className='w-full'>
-				<AspectRatio ratio={1278 / 667} className='relative'>
-					<Image src='/images/competitors.png' alt='Problems' layout='fill' />
+				<AspectRatio ratio={1501 / 609} className='relative'>
+					<Image
+						src='/images/competitors-2.png'
+						alt='Problems'
+						layout='fill'
+						quality={100}
+					/>
 				</AspectRatio>
 			</div>
 		</section>

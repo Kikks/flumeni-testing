@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -16,7 +16,7 @@ import { Button } from "../ui/button";
 import { WaitlistContext } from "@/contexts/waitlist";
 
 const formURL =
-	"https://script.google.com/macros/s/AKfycbwRj6zjFQS6JIUWOREpi4O1RFBqPWYFJ6u3Ib8NUyW7PCQCfd4oCrsCsCnhBmLsfLHF/exec";
+	"https://script.google.com/macros/s/AKfycbxcYhstwG_h7fHqhBsqHqofmi6ZiKQOX11sMDmCKJ-Xj9xf5O39My7-5RHsM_Msx9QU/exec";
 
 const JoinWaitlistModal = () => {
 	const { email, showWaitlistModal, questionOptions, setShowWaitlistModal } =
@@ -24,13 +24,15 @@ const JoinWaitlistModal = () => {
 
 	const [isLoading, setIsLoading] = useState(false);
 	const [selectedOption, setSelectedOption] = useState("");
+	const [location, setLocation] = useState("");
 
 	const handleSubmission = () => {
 		setIsLoading(true);
 
 		const data = {
 			Email: email,
-			"Biggest Interview Preparation Challenge": selectedOption
+			"Biggest Interview Preparation Challenge": selectedOption,
+			Location: location
 		};
 
 		const formData = new FormData();
@@ -75,6 +77,15 @@ const JoinWaitlistModal = () => {
 			setShowWaitlistModal(value);
 		}
 	};
+
+	useEffect(() => {
+		fetch("https://ipapi.co/json")
+			.then(res => res.json())
+			.then(data =>
+				setLocation(`${data?.region ?? ""} ${data?.country_name ?? ""}`)
+			)
+			.catch(err => console.error(err));
+	}, []);
 
 	return (
 		<Dialog open={showWaitlistModal} onOpenChange={handleCloseModal}>
