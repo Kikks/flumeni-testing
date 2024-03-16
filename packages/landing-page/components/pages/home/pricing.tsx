@@ -14,7 +14,7 @@ const pricingPlans = [
 			"Access to Resource Library",
 			"Standard Support"
 		],
-		price: "10k",
+		price: "$50",
 		isSuggested: true
 	},
 	{
@@ -97,7 +97,7 @@ export default function Pricing() {
 							/>
 							<div className='w-full text-left pt-7 z-20'>
 								{item.isCustomPrice ? (
-									<p className='text-xl font-bold z-20'>Let&quot;s Talk</p>
+									<p className='text-xl font-bold z-20'>Let&apos;s Talk</p>
 								) : (
 									<p className='flex space-x-5 items-center z-20'>
 										<span className='text-2xl font-bold z-20'>
