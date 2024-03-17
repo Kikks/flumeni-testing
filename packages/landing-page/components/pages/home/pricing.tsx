@@ -101,7 +101,7 @@ export default function Pricing() {
 								) : (
 									<p className='flex space-x-5 items-center z-20'>
 										<span className='text-2xl font-bold z-20'>
-											₦{item.price}
+											{item.price}
 										</span>
 										<span className='text-sm z-20'>/ year</span>
 									</p>
