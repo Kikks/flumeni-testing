@@ -44,6 +44,7 @@ export default function JoinWaitlist() {
 						value={email}
 						onChange={e => setEmail(e.target.value)}
 						type='email'
+						name='email'
 						required
 					/>
 					<Button variant='black'>Join Waitlist</Button>

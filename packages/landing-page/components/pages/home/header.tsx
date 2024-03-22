@@ -51,6 +51,7 @@ export default function Header() {
 					value={email}
 					onChange={e => setEmail(e.target.value)}
 					type='email'
+					name='email'
 					required
 				/>
 				<Button size='lg' className='lg:h-16 font-bold'>
